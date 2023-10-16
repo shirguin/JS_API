@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    border: 1px solid black;
+}
