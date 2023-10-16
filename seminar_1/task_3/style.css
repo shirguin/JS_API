@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    color: blue;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 36px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.article{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.btn{
+    padding: 5px;
+    width: 150px;
+}

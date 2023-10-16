@@ -19,5 +19,50 @@ const articlesData = [
     content: "Содержание статьи 2",
   },
 ];
+const contentEl = document.querySelector(".content");
+const addButtonEl = document.querySelector(".addArticle");
 
-//использовать closed
+//Начальный вывод статей
+articlesData.forEach((article) => {
+  const newDivEl = document.createElement("div");
+  newDivEl.className = "article";
+  let html = `
+    <h2>${article.title}</h2>
+    <p>${article.content}</p>
+    <div class="buttons">
+      <button class="btn editArticle">Редактировать</button>
+      <button class="btn deleteArticle">Удалить</button>
+    </div>`;
+  newDivEl.innerHTML = html;
+  contentEl.append(newDivEl);
+});
+
+//добавление новой статьи
+addButtonEl.addEventListener("click", () => {
+  const newDivEl = document.createElement("div");
+  newDivEl.className = "article";
+  let html = `
+    <h2>Новая статья</h2>
+    <p>Введите содержание статьи...</p>
+    <div class="buttons">
+      <button class="btn editArticle">Редактировать</button>
+      <button class="btn deleteArticle">Удалить</button>
+    </div>`;
+  newDivEl.innerHTML = html;
+  contentEl.append(newDivEl);
+
+  const deleteButton = newDivEl.querySelector(".deleteArticle");
+
+  deleteButton.addEventListener("click", (e) => {
+    e.target.closest(".article").remove();
+  });
+});
+
+//удаление статьи
+const deleteButtonEls = document.querySelectorAll(".deleteArticle");
+
+deleteButtonEls.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.target.closest(".article").remove();
+  });
+});
