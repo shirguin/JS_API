@@ -3,8 +3,34 @@
   padding: 0;
 }
 
-.title{
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+.title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item {
+  margin: 10px;
+}
+
+.lisson__title {
+  color: blueviolet;
+}
+
+.data {
+  margin-right: 20px;
+}
+
+.btn {
+  padding: 5px;
+}
+
+.error {
+  color: red;
 }
