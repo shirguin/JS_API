@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.menu__items {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.menu__item {
+
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu__item:hover {
+    color: blue;
+}
+
+.active {
+    color: blue;
+}
