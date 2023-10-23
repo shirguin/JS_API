@@ -15,39 +15,44 @@
 
 Добавьте стилизацию для слайдера и элементов интерфейса с использованием CSS для улучшения внешнего вида. */
 
-const slider = document.querySelector(".slider");
-const prevButton = document.querySelector(".prev-button");
-const nextButton = document.querySelector(".next-button");
-const slides = slider.querySelectorAll("img");
+const sliderEl = document.querySelector(".slider");
+const prevButtonEl = document.querySelector(".prev-button");
+const nextButtonEl = document.querySelector(".next-button");
+const dotButtonEls = document.querySelectorAll(".dot");
+const slides = sliderEl.querySelectorAll("img");
 const slideCount = slides.length;
 let slideIndex = 0;
 
 // Устанавливаем обработчики событий для кнопок
-prevButton.addEventListener("click", showPreviousSlide);
-nextButton.addEventListener("click", showNextSlide);
-
-// Функция для показа предыдущего слайда
-function showPreviousSlide() {
+prevButtonEl.addEventListener("click", () => {
   slideIndex = (slideIndex - 1 + slideCount) % slideCount;
   updateSlider();
-}
+});
 
-// Функция для показа следующего слайда
-function showNextSlide() {
+nextButtonEl.addEventListener("click", () => {
   slideIndex = (slideIndex + 1) % slideCount;
   updateSlider();
-}
+});
+
+dotButtonEls.forEach((element, index) => {
+  element.addEventListener("click", () => {
+    slideIndex = index;
+    updateSlider();
+  });
+});
 
 // Функция для обновления отображения слайдера
 function updateSlider() {
   slides.forEach((slide, index) => {
     if (index === slideIndex) {
       slide.style.display = "block";
+      dotButtonEls[index].classList.add("active");
     } else {
       slide.style.display = "none";
+      dotButtonEls[index].classList.remove("active");
     }
   });
 }
 
-// Инициализация слайдера
+//Инициализация слайдера
 updateSlider();
