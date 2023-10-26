@@ -63,25 +63,19 @@ const productsData = [
   },
 ];
 
-const init = () => {
-  const products = document.getElementById("products");
-  productsData.forEach((product) => {
-    const liEl = document.createElement("li");
-    liEl.id = product.id;
-    liEl.textContent = product.name;
-    liEl.dataset.category = product.category;
-    products.appendChild(liEl);
-  });
-};
-init();
-
 const selectEl = document.getElementById("categories");
+console.log(selectEl);
+const products = document.getElementById("products");
 
-selectEl.addEventListener("change", (e) => {
-  const products = document.getElementById("products");
+selectEl.addEventListener("change", () => {
   products.innerHTML = "";
+  const category = selectEl.value;
+  showProducts(category);
+});
+
+const showProducts = (category) => {
   productsData.forEach((product) => {
-    if (product.category == selectEl.value) {
+    if (product.category == category) {
       const liEl = document.createElement("li");
       liEl.id = product.id;
       liEl.textContent = product.name;
@@ -89,4 +83,4 @@ selectEl.addEventListener("change", (e) => {
       products.appendChild(liEl);
     }
   });
-});
+};
