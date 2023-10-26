@@ -29,3 +29,11 @@ API-ключ представляет собой строку вида YOUR_ACCE
 //Access Key: xUN3fRO_GMYTk5aJcNFVgjva_N9LAkTN-NJuPnuiN6k
 
 //Secret key: bkbi0mHtihr_GQ4SJLTgvne87Yfn85TrXbpllmzikKk
+
+const photoElement = document.createElement("div");
+photoElement.classList.add("photo");
+const img = document.createElement("img");
+img.src = photo.urls.small;
+img.alt = photo.alt_description;
+photoElement.appendChild(img);
+photoContainer.appendChild(photoElement);

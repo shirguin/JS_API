@@ -26,6 +26,26 @@
   </head>
   <body>
     <div id="photo-container"></div>
-    <script src="script.js"></script>
+    <script>
+      "use strict";
+      let fact;
+      const photoContainer = document.querySelector("#photo-container");
+
+      async function showPic() {
+        const url =
+          "https://api.unsplash.com/photos/random?client_id=xUN3fRO_GMYTk5aJcNFVgjva_N9LAkTN-NJuPnuiN6k";
+        const response = await fetch(url);
+
+        console.log(response.status);
+        console.log(response.ok);
+
+        fact = await response.json();
+        console.log(fact);
+        const urlImage = fact.urls.regular;
+        console.log(urlImage);
+      }
+
+      showPic();
+    </script>
   </body>
 </html>
